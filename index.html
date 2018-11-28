@@ -11,11 +11,25 @@
     setTimeout(function() {
         var options = {excludeUserAgent: true, excludeWebGL: true, excludeAdBlock: true, excludeHasLiedBrowser: true, excludeJsFonts: true, excludeFlashFonts: true, excludeIEPlugins: true, excludeHardwareConcurrency: true};
         new Fingerprint2(options).get(function(result) {
-			var elem = document.getElementById("s");
+			var elem = document.getElementById("t");
             elem.innerHTML = result;
         });
-    }, 5)
+		
+		var options = {excludeWebGL: true, excludeAdBlock: true, excludeHasLiedBrowser: true, excludeJsFonts: true, excludeFlashFonts: true, excludeIEPlugins: true, excludeHardwareConcurrency: true};
+        new Fingerprint2(options).get(function(result) {
+			var elem = document.getElementById("ua");
+            elem.innerHTML = result;
+        });
+		
+		var options = {};
+        new Fingerprint2(options).get(function(result) {
+			var elem = document.getElementById("all");
+            elem.innerHTML = result;
+        });
+    }, 5);
 </script>
-<h3>Fingerprint: <span id="s"></span></h3>
+<h3>Fingerprint (Tracking): <span id="t"></span></h3>
+<h3>Fingerprint (Tracking with user agent): <span id="ua"></span></h3>
+<h3>Fingerprint (All): <span id="all"></span></h3>
 </body>
 </html>
